@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>FriendMap</display-name>
+  <servlet>
+  	<display-name></display-name>
+    <servlet-name>TimePrint</servlet-name>
+    <servlet-class>com.fm.demo.TimePrint</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DBTest</servlet-name>
+    <servlet-class>com.fm.demo.DBTest</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CheckVersion</servlet-name>
+    <servlet-class>com.fm.servlet.client.CheckVersion</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Register</servlet-name>
+    <servlet-class>com.fm.servlet.client.Register</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.fm.servlet.client.Login</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GetUserInfo</servlet-name>
+    <servlet-class>com.fm.servlet.client.GetUserInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CommitPosition</servlet-name>
+    <servlet-class>com.fm.servlet.client.CommitPosition</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PositionGetAll</servlet-name>
+    <servlet-class>com.fm.servlet.client.PositionGetAll</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadFile</servlet-name>
+    <servlet-class>com.fm.servlet.client.UploadFile</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>TimePrint</servlet-name>
+    <url-pattern>/Test/TimePrint</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DBTest</servlet-name>
+    <url-pattern>/Test/DBTest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckVersion</servlet-name>
+    <url-pattern>/Client/CheckVersion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Register</servlet-name>
+    <url-pattern>/Client/Register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Client/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetUserInfo</servlet-name>
+    <url-pattern>/Client/GetUserInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CommitPosition</servlet-name>
+    <url-pattern>/Client/CommitPosition</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PositionGetAll</servlet-name>
+    <url-pattern>/Client/PositionGetAll</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadFile</servlet-name>
+    <url-pattern>/Client/UploadFile</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
