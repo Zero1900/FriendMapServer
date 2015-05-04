@@ -1,23 +1,33 @@
 package com.fm.servlet.client;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.File;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.apache.tomcat.util.http.fileupload.FileItem;
 
 import com.fm.servlet.FMRequest;
+import com.fm.servlet.FMRequestFile;
 import com.fm.servlet.FMResponse;
-import com.fm.servlet.ServletBase;
 
-public class UploadFile extends ServletBase {
+public class UploadFile extends UploadFileBase {
+
 
 	@Override
 	public int doSolve(FMRequest fmRequest, FMResponse fmResponse) throws Exception {
 		// TODO Auto-generated method stub
+		FMRequestFile fmRequestFile=(FMRequestFile)fmRequest;
+		
+		FileItem fileItem=fmRequestFile.getFileItem();
+		
+		String path=fmRequestFile.getSession().getSession().getServletContext().getRealPath("/")+"/Image";
+		
+		File folder = new File(path);
+		if(!folder.exists()){
+			folder.mkdirs();
+		}
+		
+		File file=new File(path, "new.png");
+		file.createNewFile();
+		fileItem.write(file);
+		
 		return 0;
-	}
-
-}
+	}}

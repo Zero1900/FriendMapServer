@@ -25,9 +25,9 @@ public class GetUserInfo extends ServletBase {
 	public int doSolve(FMRequest fmRequest, FMResponse fmResponse) throws Exception {
 		// TODO Auto-generated method stub
 		FMSession session=fmRequest.getSession();
-		String userid=session.getUserId();
+		int userid=session.getUserId();
 		
-		if(userid==null){
+		if(userid==0){
 			return ErrorConsts.SESSION_INVALID;
 		}
 		

@@ -38,6 +38,11 @@
     <servlet-name>UploadFile</servlet-name>
     <servlet-class>com.fm.servlet.client.UploadFile</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SearchFriends</servlet-name>
+    <servlet-class>com.fm.servlet.client.SearchFriends</servlet-class>
+  </servlet>
+
 
 
 
@@ -82,6 +87,10 @@
   <servlet-mapping>
     <servlet-name>UploadFile</servlet-name>
     <url-pattern>/Client/UploadFile</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchFriends</servlet-name>
+    <url-pattern>/Client/SearchFriends</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

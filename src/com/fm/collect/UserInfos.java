@@ -1,6 +1,10 @@
 package com.fm.collect;
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
 import com.fm.common.FMMongo;
 import com.fm.data.UserInfo;
 import com.mongodb.BasicDBObject;
@@ -29,9 +33,9 @@ public class UserInfos {
 		DBCollection collection=getCollection();
 		DBCursor cursor=collection.find().sort(new BasicDBObject("$natural",-1)).limit(1);
 		if(cursor.hasNext()){
-			userInfo.userid=""+(Integer.parseInt(cursor.next().get("_id").toString())+1);
+			userInfo.userid=(Integer.parseInt(cursor.next().get("_id").toString())+1);
 		}else{
-			userInfo.userid="0";
+			userInfo.userid=1;
 		}
 		collection.insert(userInfo.createDbObject());
 		return true;
@@ -43,7 +47,7 @@ public class UserInfos {
 	 * @param username
 	 * @return
 	 */
-	public UserInfo getDataById(String userid) {
+	public UserInfo getDataById(int userid) {
 		DBCollection collection = getCollection();
 		DBObject dbObject = collection.findOne(new BasicDBObject("_id", userid));
 		if (dbObject != null) {
@@ -67,5 +71,19 @@ public class UserInfos {
 		} else {
 			return null;
 		}
+	}
+	public List<UserInfo> searchFriends(String nickname){
+		List<UserInfo> list=new ArrayList<UserInfo>();
+		DBCollection collection=getCollection();
+		String string="^.*"+nickname+".*$";
+		Pattern pattern=Pattern.compile(string,Pattern.CASE_INSENSITIVE);
+		BasicDBObject query=new BasicDBObject();
+		query.put("nickname", pattern);
+		DBCursor cursor=collection.find(query);
+		while(cursor.hasNext()){
+			list.add(new UserInfo(cursor.next()));
+		}
+		
+		return list;
 	}
 }

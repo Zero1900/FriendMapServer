@@ -54,6 +54,8 @@ public class FMResponse {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	}
+	public String getResponse(){
+		return jsonObject.toString();
 	}
 }

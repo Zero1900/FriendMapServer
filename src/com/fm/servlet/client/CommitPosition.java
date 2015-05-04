@@ -21,8 +21,8 @@ public class CommitPosition extends ServletBase {
 	public int doSolve(FMRequest fmRequest, FMResponse fmResponse) throws Exception {
 		// TODO Auto-generated method stub
 		//获取用户
-		String userid=fmRequest.getSession().getUserId();
-		if(userid == null){
+		int userid=fmRequest.getSession().getUserId();
+		if(userid == 0){
 			return ErrorConsts.SESSION_INVALID;
 		}
 		//解析json

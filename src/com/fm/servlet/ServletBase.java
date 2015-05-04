@@ -77,10 +77,18 @@ public abstract class ServletBase extends HttpServlet {
 		FMResponse fmResponse=new FMResponse(httpServletResponse);
 		
 		int errorCode=ErrorConsts.UNKNOWN;
+		String logString=""+httpServletRequest.getRequestURI();
+		if(fmRequest.getSession().getUserId()!=0){
+			logString=logString+"	userid:"+fmRequest.getSession().getUserId();
+		}
+		logString=logString+"	clientVersion:"+fmRequest.getClientVersion();
+		logString=logString+"	params:"+fmRequest.getClientParmas();
 		
 		try {
-			System.out.println(""+httpServletRequest.getRequestURL());
+			
 			errorCode=this.doSolve(fmRequest,fmResponse);
+			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,6 +96,8 @@ public abstract class ServletBase extends HttpServlet {
 		}
 		fmResponse.setErrorCode(errorCode);
 		fmResponse.append();
+		logString=logString+"	response:"+fmResponse.getResponse();
+		System.out.println(logString);
 	}
 
 	/**

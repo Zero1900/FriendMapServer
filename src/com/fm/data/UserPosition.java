@@ -6,11 +6,11 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 
 public class UserPosition {
-	public String userid;
+	public int userid;
 	public double longitude;
 	public double latitude;
 	public long time;
-	public UserPosition(String userid,double longitude,double latitude,long time){
+	public UserPosition(int userid,double longitude,double latitude,long time){
 		this.userid=userid;
 		this.longitude=longitude;
 		this.latitude=latitude;
@@ -20,7 +20,7 @@ public class UserPosition {
 		parseDBObject(dbObject);
 	}
 	public void parseDBObject(DBObject dbObject){
-		userid=(String) dbObject.get("_id");
+		userid=(int) dbObject.get("_id");
 		longitude=(double) dbObject.get("longitude");
 		latitude=(double) dbObject.get("latitude");
 		time=(long) dbObject.get("time");

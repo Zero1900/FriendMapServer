@@ -1,6 +1,8 @@
 package com.fm.servlet;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,6 +12,7 @@ import org.json.JSONObject;
 
 public class FMRequest {
 	private HttpServletRequest request;
+	
 
 	public FMRequest(HttpServletRequest httpServletRequest) {
 
@@ -36,5 +39,10 @@ public class FMRequest {
 	}
 	public FMSession getSession(){
 		return new FMSession(request.getSession());
+	}
+
+	public HttpServletRequest getResuest() {
+		// TODO Auto-generated method stub
+		return request;
 	}
 }

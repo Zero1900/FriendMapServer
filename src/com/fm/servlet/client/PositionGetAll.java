@@ -21,8 +21,8 @@ public class PositionGetAll extends ServletBase {
 	public int doSolve(FMRequest fmRequest, FMResponse fmResponse) throws Exception {
 		// TODO Auto-generated method stub
 		
-		String userid=fmRequest.getSession().getUserId();
-		if(userid==null){
+		int userid=fmRequest.getSession().getUserId();
+		if(userid==0){
 			return ErrorConsts.SESSION_INVALID;
 		}
 		
